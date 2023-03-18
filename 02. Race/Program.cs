@@ -1,4 +1,4 @@
-﻿
+
 using System.Text.RegularExpressions;
 
 string[] inputNames = Console.ReadLine().Split(", ", StringSplitOptions.RemoveEmptyEntries);
@@ -18,10 +18,11 @@ while (info != "end of race")
     MatchCollection distanceRegxColection = Regex.Matches(info, @"\d");
 
     string curName = string.Join("", name);
+    int distance = distanceRegxColection.Select(x => int.Parse(x.Value)).Sum();
 
     if (participants.ContainsKey(curName))
     {
-        participants[curName] += distanceRegxColection.Select(x => int.Parse(x.Value)).Sum();
+        participants[curName] += distance;
     }
 
     info = Console.ReadLine();
