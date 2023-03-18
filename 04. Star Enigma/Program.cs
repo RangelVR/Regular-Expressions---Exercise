@@ -1,11 +1,11 @@
-﻿using System.Text.RegularExpressions;
+using System.Text.RegularExpressions;
 
 int numberOfMessages = int.Parse(Console.ReadLine());
 List<string> attackedPlanets = new List<string>();
 List<string> destroyedPlanets = new List<string>();
 
 string patternKey = "(?<key>[STAR]|[star])";
-string pattern = @"@(?<planet>[A-Z][a-z]+)[^@\-\!\:\>]*?\:(?<population>\d+)[^@\-\!\:\>]*?\!(?<attack>[A|D])\![^@\-\!\:\>]*?->(?<soldiers>\d+)";
+string pattern = @"@(?<planet>[A-Z][a-z]+)[^@\-!:>]*?\:(?<population>\d+)[^@\-!:>]*?\!(?<attack>[A|D])\![^@\-!:>]*?->(?<soldiers>\d+)";
 
 for (int message = 1; message <= numberOfMessages; message++)
 {
